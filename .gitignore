@@ -1,0 +1,20 @@
+#byte-compiled files
+__pycache__/
+*.py[cod]
+
+#environment files
+.env
+.venv/
+venv/
+
+#jupyter
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+#project artifacts
+data/
+artifacts/
+
+#system files
+.DS_Store
+.vscode/
