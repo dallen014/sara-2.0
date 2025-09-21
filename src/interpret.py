@@ -67,7 +67,7 @@ def explain_prediction(
         text_instance=new_text_cleaned,
         classifier_fn=classifier_fn,
         num_features=num_features,
-        num_samples=100,
+        num_samples=1000,
         top_labels=1,  # only explain the top prediction
     )
 
