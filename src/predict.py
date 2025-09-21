@@ -1,3 +1,9 @@
+"""
+predict.py
+
+function for making predictions on new support tickets
+"""
+
 import numpy as np
 from typing import List, Tuple
 from src.preprocess import preprocess_and_transform
