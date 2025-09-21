@@ -28,12 +28,12 @@ class TestPreprocess(unittest.TestCase):
         redacted = redact_pii(text)
 
         # Validate each pattern
-        self.assertIn("[EMAIL]", redacted, "Email not redacted")
-        self.assertIn("[PHONE]", redacted, "Phone number not redacted")
-        self.assertIn("[IP]", redacted, "IP address not redacted")
-        self.assertIn("[CREDIT_CARD]", redacted, "Credit card not redacted")
-        self.assertIn("[ADDRESS]", redacted, "Address not redacted")
-        self.assertIn("[PERSON]", redacted, "Person name not redacted")
+        self.assertIn("[EMAIL_REDACTED]", redacted, "Email not redacted")
+        self.assertIn("[PHONE_REDACTED]", redacted, "Phone not redacted")
+        self.assertIn("[IP_REDACTED]", redacted, "IP not redacted")
+        self.assertIn("[CREDIT_CARD_REDACTED]", redacted, "Credit card not redacted")
+        self.assertIn("[ADDRESS_REDACTED]", redacted, "Address not redacted")
+        self.assertIn("<NAME>", redacted, "Name not redacted")
 
     def test_clean_text(self):
         raw = "Hello   \n\n   World"
