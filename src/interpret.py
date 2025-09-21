@@ -3,6 +3,12 @@ interpret.py
 
 Functions for generating model interpretability outputs.
 Uses LIME to provide word-level explanations for predictions.
+
+Note:
+We use `clean_text` (not `preprocess_and_transform`) because LIME needs
+the *raw-ish* text so it can measure the effect of words.
+The full preprocessing (embedding + scaling) happens inside `classifier_fn`
+that LIME calls internally.
 """
 
 import numpy as np
