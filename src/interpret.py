@@ -34,7 +34,7 @@ lime_class_names = [short_map.get(n, n) for n in label_encoder.classes_]
 
 def explain_prediction(
     subject: str, body: str, num_features: int = 10
-) -> List[Tuple[str, float]]:
+) -> Tuple[List[Tuple[str, float]], object]:
     """
     Generate word-level explanations for a prediction using LIME.
 
@@ -44,8 +44,10 @@ def explain_prediction(
         num_features (int): Number of words to include in the explanation.
 
     Returns:
-        List[Tuple[str, float]]: List of (word, weight) tuples showing
-        which words push the prediction toward or away from the predicted class.
+        Tuple[List[Tuple[str, float]], LimeExplanation]:
+            - explanation: List of (word, weight) tuples showing
+              which words push the prediction toward or away from the predicted class.
+            - exp: Full LIME Explanation object for visualization (bar chart, HTML highlights).
     """
     # Clean and combine subject/body
     new_text_cleaned = clean_text(f"{subject.strip()} {body.strip()}")
@@ -74,4 +76,4 @@ def explain_prediction(
     top_label = exp.available_labels()[0]
     explanation = exp.as_list(label=top_label)
 
-    return explanation
+    return explanation, exp
