@@ -13,6 +13,7 @@ that LIME calls internally.
 
 import numpy as np
 from lime.lime_text import LimeTextExplainer
+from lime.explanation import Explanation
 from typing import List, Tuple
 from src.preprocess import clean_text, scaler, sbert_model
 from src.predict import svm_model, label_encoder
@@ -34,7 +35,7 @@ lime_class_names = [short_map.get(n, n) for n in label_encoder.classes_]
 
 def explain_prediction(
     subject: str, body: str, num_features: int = 10
-) -> Tuple[List[Tuple[str, float]], object]:
+) -> Tuple[List[Tuple[str, float]], Explanation]:
     """
     Generate word-level explanations for a prediction using LIME.
 
