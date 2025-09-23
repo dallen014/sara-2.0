@@ -1,13 +1,12 @@
 import streamlit as st
 import streamlit.components.v1 as components
-
 from src.predict import predict_ticket, label_encoder
 from src.interpret import explain_prediction
 
 # Streamlit app config
 st.set_page_config(page_title="Support Ticket Queue Predictor", layout="centered")
 
-st.title("📝 Support Ticket Queue Predictor")
+st.title("Support-Ticket Automated Routing Assistant (SARA)")
 st.write("Enter a support ticket subject and body to predict the most likely queue.")
 
 # --- Input fields ---
@@ -47,21 +46,30 @@ if st.button("Predict"):
             index=0,  # Default to placeholder
         )
 
-        # Confirmation message when queue selected
-        if assigned_queue != "-- Select a queue --":
-            st.success(f"✅ Queue assignment confirmed: **{assigned_queue}**")
-        elif selected_queue:
-            st.info(f"Suggested queue selected: **{selected_queue}**")
-
         # --- Explanation Section ---
-        st.subheader("Interpretability (LIME Explanation)")
+        st.subheader("Explaination")
 
-        # Highlighted text explainer
-        components.html(
-            exp.as_html(text=True, predict_proba=True), height=600, scrolling=True
+        st.markdown(
+            """
+            The chart below explains why the model chose a specific queue.  
+
+            - **Prediction probabilities (top-left bar chart):** shows how confident the model 
+            is in each possible queue. Higher values mean more confidence.  
+
+            - **Word importance chart (top-right plot):** shows which words pushed the 
+            decision *toward* or *away from* the predicted queue. Words on the right 
+            support the prediction; words on the left suggest another queue.  
+
+            - **Highlighted text (bottom view):** shows the original ticket with the 
+            most influential words highlighted. Darker highlights mean stronger influence.  
+            """
         )
 
-        # Raw explanation list
-        st.write("**Top Words & Weights**")
-        for word, weight in explanation:
-            st.write(f"- {word}: {weight:.4f}")
+        # Wrap LIME HTML in white background
+        lime_html = exp.as_html(text=True, predict_proba=True)
+        wrapped_html = f"""
+        <div style="background-color:white; color:black;">
+            {lime_html}
+        </div>
+        """
+        components.html(wrapped_html, height=1500)
