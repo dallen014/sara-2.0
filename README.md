@@ -25,8 +25,6 @@ cd sara-2.0
   2. pip install -r requirements.txt
   3. streamlit run app.py
 
-
-
 ## Project Structure
 ```
 sara-2.0/
@@ -70,6 +68,12 @@ The dataset can also found at the following link: [Customer Support Ticket Data]
 4. Evaluation
     - Generate classification reports for each model
 
-## Model Report and Findings
-[SARA Report](https://toobrightideas.medium.com/querious-detector-using-ai-to-assist-with-support-queue-ticket-assignment-98c4dbc08e21)
+## Authors
+ - Damond Allen - Research, Model Developer, Streamlit App @dallen014
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details
+
+## Acknowledgements
+This work is a continuation of the capstone project I completed in August 2025 at University of Michigan while completing a Masters in Applied Data Science.To read more on that project check out my blog post here:[SARA Report](https://toobrightideas.medium.com/querious-detector-using-ai-to-assist-with-support-queue-ticket-assignment-98c4dbc08e21)
 
