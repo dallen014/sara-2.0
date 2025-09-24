@@ -13,9 +13,6 @@ venv/
 
 #project artifacts
 data/
-artifacts/
-*.png
-*.gif
 
 #system files
 .DS_Store

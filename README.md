@@ -11,7 +11,7 @@ This project aims to reduce ticket misrouting by using machine learning models t
   - Explanations prediction by highlighting which words influenced the model
   - Agents can confirm or override the queue assignment
 ## Example
-![Demo](example_demo.gif)
+![Demo](artifacts/example_demo.gif)
 
 ## Installation
 
@@ -28,6 +28,7 @@ cd sara-2.0
 
 
 ## Project Structure
+```
 sara-2.0/
 │
 ├── app.py                 # Streamlit app entrypoint
@@ -40,7 +41,7 @@ sara-2.0/
 ├── tests/                 # Unit tests
 ├── requirements.txt       # Dependencies
 └── README.md              # Project documentation
-
+```
 
 
 ## Data Source
@@ -52,7 +53,7 @@ The model was trained on a dataset of support tickets containing, but not limite
 The dataset can also found at the following link: [Customer Support Ticket Data](https://www.kaggle.com/datasets/tobiasbueck/multilingual-customer-support-tickets/data). This data falls under the CC BY 4.0 license.
 
 ## Model Development Methodology
- ![Model Development Diagram](development_diagram.png)
+ ![Model Development Diagram](artifacts/development_diagram.png)
 1. Data Loading + Preprocessing
     - Map similar queues to broader catergories (e.g Technical Support + IT Support → Technical & IT Support)
     - Redact personally identifiable information (PII).
