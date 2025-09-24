@@ -13,7 +13,6 @@ venv/
 
 #project artifacts
 data/
-artifacts/
 
 #system files
 .DS_Store
